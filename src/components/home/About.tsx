@@ -37,30 +37,15 @@ export default function About() {
         return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
-    // Digital "Program Exit" Collapse Effect
-    // Clean, vertical collapse without horizontal shaking
-
-    // Opacity Flicker: On -> Dim -> On -> Gone
+    // Simple Fade Out Effect on mobile
+    // Clean and simple opacity transition
     const opacity = useTransform(scrollYProgress,
-        [0, 0.05, 0.1, 0.15, 0.2],
-        [1, 0.5, 1, 0.5, 0]
-    );
-
-    // Vertical Squash: Full height -> Thin line
-    const scaleY = useTransform(scrollYProgress,
-        [0, 0.1, 0.2],
-        [1, 0.5, 0]
-    );
-
-    // Brightness Flash: Normal -> Bright Flash -> Gone
-    const filter = useTransform(scrollYProgress,
-        [0, 0.15, 0.2],
-        ["brightness(1)", "brightness(2)", "brightness(5)"]
+        [0, 0.2],
+        [1, 0]
     );
 
     // On desktop, we want no transform
-    // transformOrigin: "center" ensures it squashes to the middle
-    const style = isMobile ? { opacity, scaleY, filter, transformOrigin: "center" } : {};
+    const style = isMobile ? { opacity } : {};
 
     return (
         <section ref={containerRef} id="about" className="w-full max-w-[1600px] px-4 py-32 flex flex-col md:flex-row gap-16 items-start relative">
