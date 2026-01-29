@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 import ProfileCard from "./ProfileCard";
 
@@ -21,15 +21,59 @@ const education = [
 ];
 
 export default function About() {
+    const containerRef = React.useRef<HTMLElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"]
+    });
+
+    // Mobile-specific transformations
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    React.useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    // Digital "Program Exit" Collapse Effect
+    // Clean, vertical collapse without horizontal shaking
+
+    // Opacity Flicker: On -> Dim -> On -> Gone
+    const opacity = useTransform(scrollYProgress,
+        [0, 0.05, 0.1, 0.15, 0.2],
+        [1, 0.5, 1, 0.5, 0]
+    );
+
+    // Vertical Squash: Full height -> Thin line
+    const scaleY = useTransform(scrollYProgress,
+        [0, 0.1, 0.2],
+        [1, 0.5, 0]
+    );
+
+    // Brightness Flash: Normal -> Bright Flash -> Gone
+    const filter = useTransform(scrollYProgress,
+        [0, 0.15, 0.2],
+        ["brightness(1)", "brightness(2)", "brightness(5)"]
+    );
+
+    // On desktop, we want no transform
+    // transformOrigin: "center" ensures it squashes to the middle
+    const style = isMobile ? { opacity, scaleY, filter, transformOrigin: "center" } : {};
+
     return (
-        <section id="about" className="w-full max-w-[1600px] px-4 py-32 flex flex-col md:flex-row gap-16 items-start">
+        <section ref={containerRef} id="about" className="w-full max-w-[1600px] px-4 py-32 flex flex-col md:flex-row gap-16 items-start relative">
             {/* Profile Visual */}
-            <div className="w-full md:w-5/12 flex justify-center sticky top-32">
+            <motion.div
+                style={style}
+                className="w-full md:w-5/12 flex justify-center relative md:sticky md:top-32 z-30"
+            >
                 <ProfileCard />
-            </div>
+            </motion.div>
 
             {/* Content Side */}
-            <div className="flex-1 space-y-12">
+            <div className="flex-1 space-y-12 z-20">
 
                 {/* Bio */}
                 <div className="space-y-6">
@@ -42,7 +86,7 @@ export default function About() {
                         Architecting Digital <span className="text-white/40">Realities</span>
                     </h3>
 
-                    <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
+                    <div className="space-y-6 text-muted-foreground leading-relaxed text-lg backdrop-blur-sm bg-black/20 p-4 rounded-xl border border-white/5">
                         <p>
                             Hello! I am Abimanyu Rianto Putra, an Informatics student at Universitas Indraprasta PGRI (UNINDRA) with a strong passion for Web Development and Artificial Intelligence.
                         </p>
