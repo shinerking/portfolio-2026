@@ -20,23 +20,32 @@ export default function Home() {
 
                     {/* Modern Grid Layout */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {/* Placeholder 1 */}
+                        {/* Project 1: JADI Coffee (Web) */}
                         <ProjectCard
-                            title="Coming Soon"
-                            description="Project currently in development. Focusing on scalability and performance."
-                            tags={["React", "Next.js", "In Progress"]}
+                            index={0}
+                            title="JADI - Cinematic Experience"
+                            description="Immersive landing page for JADI Coffee featuring scroll-linked image sequences, smooth Lenis scrolling, and high-end interactive animations."
+                            tags={["Next.js", "Tailwind CSS", "Framer Motion", "Lenis"]}
+                            imageSrc="/images/jadi-preview.png"
+                            githubLink="https://github.com/shinerking/jadialfa"
+                            liveLink="https://jadialfa-l8wr.vercel.app?_vercel_share=f9yiufYBy4whd8WUVBWlLK4gjjp6JkvA"
                         />
-                        {/* Placeholder 2 */}
+                        {/* Project 2: Full Stack Request (Laravel/Vue) */}
                         <ProjectCard
-                            title="Coming Soon"
-                            description="Exciting new application in the works. Stay tuned for updates."
-                            tags={["Python", "AI", "R&D"]}
+                            index={1}
+                            title="LuxeMarket E-Commerce"
+                            description="Scalable multi-vendor marketplace platform. Built with a headless architecture using Laravel API and Vue.js frontend for maximum performance."
+                            tags={["Laravel", "Vue.js", "MySQL", "Redis"]}
+                            liveLink="https://example.com"
                         />
-                        {/* Placeholder 3 */}
+                        {/* Project 3: Mobile (React Native) */}
                         <ProjectCard
-                            title="Coming Soon"
-                            description="Developing a robust solution for data analysis and visualization."
-                            tags={["Data Science", "Machine Learning"]}
+                            index={2}
+                            title="NexaFlow Mobile"
+                            description="Cross-platform mobile application for team collaboration. Features real-time sync, offline mode, and biometric authentication."
+                            tags={["React Native", "TypeScript", "Supabase", "Expo"]}
+                            githubLink="https://github.com"
+                            liveLink="https://example.com"
                         />
                     </div>
                 </div>

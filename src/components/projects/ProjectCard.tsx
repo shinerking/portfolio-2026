@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
+import { motion } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
-import Image from "next/image";
 
 interface ProjectCardProps {
     title: string;
@@ -11,6 +10,9 @@ interface ProjectCardProps {
     imageSrc?: string;
     githubLink?: string;
     liveLink?: string;
+    index?: number;
+    onClick?: () => void;
+    layoutId?: string;
 }
 
 export default function ProjectCard({
@@ -19,22 +21,34 @@ export default function ProjectCard({
     tags,
     imageSrc,
     githubLink,
-    liveLink
+    liveLink,
+    index = 0,
+    onClick,
+    layoutId
 }: ProjectCardProps) {
     return (
-        <div className="group rounded-xl overflow-hidden bg-neutral-900 border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] flex flex-col h-full">
+        <motion.div
+            layoutId={layoutId}
+            onClick={onClick}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1, duration: 0.5 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -10, rotateX: 5, scale: 1.02 }}
+            className="group relative rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-[rgb(var(--primary))/50] transition-colors duration-500 hover:shadow-[0_0_50px_rgba(59,130,246,0.15)] flex flex-col h-full transform-gpu perspective-1000 cursor-pointer"
+        >
 
             {/* Image Area */}
             <div className="relative h-48 w-full overflow-hidden border-b border-white/5 bg-black">
                 {imageSrc ? (
                     <div
-                        className="absolute inset-0 bg-cover bg-top transition-transform duration-700 group-hover:scale-105"
+                        className="absolute inset-0 bg-cover bg-top transition-transform duration-700 group-hover:scale-110"
                         style={{ backgroundImage: `url(${imageSrc})` }}
                     />
                 ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center text-neutral-700 gap-2">
-                        <div className="w-8 h-8 rounded border border-white/10 bg-white/5 flex items-center justify-center">
-                            <span className="w-1/2 h-px bg-white/20"></span>
+                    <div className="w-full h-full flex flex-col items-center justify-center text-neutral-700 gap-2 group-hover:bg-white/5 transition-colors">
+                        <div className="w-8 h-8 rounded border border-white/10 bg-white/5 flex items-center justify-center group-hover:border-[rgb(var(--secondary))] transition-colors">
+                            <span className="w-1/2 h-px bg-white/20 group-hover:bg-[rgb(var(--secondary))]"></span>
                         </div>
                         <span className="font-mono text-xs">No Preview</span>
                     </div>
@@ -45,7 +59,7 @@ export default function ProjectCard({
             </div>
 
             {/* Content */}
-            <div className="p-6 flex-1 flex flex-col">
+            <div className="p-6 flex-1 flex flex-col relative z-20 bg-neutral-900/50 backdrop-blur-sm">
                 <h3 className="text-xl font-bold font-space text-white mb-3 group-hover:text-[rgb(var(--primary))] transition-colors">
                     {title}
                 </h3>
@@ -75,12 +89,12 @@ export default function ProjectCard({
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
                     {tags.map((tag) => (
-                        <span key={tag} className="px-2 py-1 rounded text-[10px] font-mono uppercase tracking-wider bg-white/5 text-neutral-400 border border-white/5">
+                        <span key={tag} className="px-2 py-1 rounded text-[10px] font-mono uppercase tracking-wider bg-white/5 text-neutral-400 border border-white/5 group-hover:border-[rgb(var(--secondary))/30] group-hover:text-[rgb(var(--secondary))] transition-colors">
                             {tag}
                         </span>
                     ))}
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }

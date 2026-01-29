@@ -4,10 +4,22 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const skills = [
-    { category: "Core", items: ["Next.js", "React", "TypeScript", "Node.js"] },
-    { category: "Styling & UI", items: ["Tailwind CSS", "GSAP", "Framer Motion", "Three.js (R3F)"] },
-    { category: "Backend & DB", items: ["PostgreSQL", "Prisma", "Python", "Supabase"] },
-    { category: "Tools", items: ["Git", "Docker", "Figma", "Vercel"] },
+    {
+        category: "Frontend & Mobile",
+        items: ["Next.js", "React", "Vue.js", "TypeScript", "React Native"]
+    },
+    {
+        category: "Styling & Creative",
+        items: ["Tailwind CSS", "Bootstrap", "GSAP", "Framer Motion", "Three.js"]
+    },
+    {
+        category: "Backend & API",
+        items: ["Node.js", "Express.js", "Laravel", "PHP (Native/CI)", "Python"]
+    },
+    {
+        category: "Database & DevOps",
+        items: ["PostgreSQL", "MySQL", "Supabase", "Docker", "Git"]
+    },
 ];
 
 export default function Skills() {
@@ -26,7 +38,7 @@ export default function Skills() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1, duration: 0.5 }}
                         viewport={{ once: true }}
-                        className="p-6 rounded-lg border border-white/5 bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm group"
+                        className="p-6 rounded-lg border border-white/5 bg-white/5 hover:bg-white/10 hover:border-[rgb(var(--primary))/30] transition-all duration-300 backdrop-blur-sm group"
                     >
                         <h3 className="text-lg font-space font-bold mb-6 text-[rgb(var(--primary))] group-hover:text-[rgb(var(--secondary))] transition-colors">
                             {group.category}

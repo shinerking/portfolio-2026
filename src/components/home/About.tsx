@@ -3,6 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+import ProfileCard from "./ProfileCard";
+
 const skills = [
     "Next.js", "React", "TypeScript", "Node.js",
     "Tailwind CSS", "GSAP", "Three.js", "Python",
@@ -12,8 +14,8 @@ const skills = [
 const education = [
     {
         school: "University of Indraprasta PGRI",
-        degree: "Bachelor of informatics engineering",
-        year: "2020 - 2024"
+        degree: "Student of informatics engineering",
+        year: "2020 - present"
     },
     // Add more if needed
 ];
@@ -22,23 +24,8 @@ export default function About() {
     return (
         <section id="about" className="w-full max-w-[1600px] px-4 py-32 flex flex-col md:flex-row gap-16 items-start">
             {/* Profile Visual */}
-            {/* Profile Visual */}
-            <div className="w-full md:w-5/12 aspect-[4/5] relative rounded-lg overflow-hidden border border-white/10 bg-neutral-900 group shrink-0">
-                <div
-                    className="absolute inset-0 bg-cover bg-no-repeat opacity-90 transition-transform duration-700 group-hover:scale-105"
-                    style={{
-                        backgroundImage: "url('/images/profile.jpg')",
-                        backgroundPosition: "center"
-                    }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20" />
-                <div className="absolute bottom-6 left-6">
-                    <h2 className="text-4xl font-space font-bold text-white mb-2">Abimanyu Rianto Putra</h2>
-                    <div className="flex items-center gap-2 text-[rgb(var(--primary))] font-mono text-xs uppercase tracking-widest">
-                        <span className="w-2 h-2 rounded-full bg-[rgb(var(--primary))] animate-pulse" />
-                        Junior Full Stack Developer | AI Engineering Enthusiast
-                    </div>
-                </div>
+            <div className="w-full md:w-5/12 flex justify-center sticky top-32">
+                <ProfileCard />
             </div>
 
             {/* Content Side */}
@@ -57,14 +44,14 @@ export default function About() {
 
                     <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
                         <p>
-                            Hello! I am an Informatics student at Universitas Indraprasta PGRI (UNINDRA) with a strong passion for Web Development and Artificial Intelligence.
+                            Hello! I am Abimanyu Rianto Putra, an Informatics student at Universitas Indraprasta PGRI (UNINDRA) with a strong passion for Web Development and Artificial Intelligence.
                         </p>
                         <p>
-                            As a Junior Full-Stack Developer, I enjoy building functional applications that solve real-world problems. My technical focus includes:
+                            As a Junior Full-Stack Developer, I specialize in building robust, scalable applications. My diverse technical background allows me to tackle complex challenges across the entire stack.
                         </p>
                         <ul className="list-disc pl-5 space-y-2 text-base">
-                            <li><strong className="text-white">Web Development:</strong> Building responsive interfaces using React.js, Next.js, and Tailwind CSS.</li>
-                            <li><strong className="text-white">Python & AI:</strong> Developing backend logic, automation tools, and exploring Machine Learning concepts (currently working on trading bots and data processing projects).</li>
+                            <li><strong className="text-white">Frontend & Mobile:</strong> Creating immersive experiences with Next.js, React, Vue.js, and React Native.</li>
+                            <li><strong className="text-white">Backend & Architecture:</strong> Developing secure, high-performance APIs using Node.js, Laravel (PHP), and Python.</li>
                         </ul>
                         <p>
                             I am constantly learning and currently expanding my skills in mobile development and AI integration. I am eager to connect with fellow developers and open to opportunities in web development or software engineering.
@@ -79,26 +66,26 @@ export default function About() {
                     {/* Grouped Skills */}
                     <div className="space-y-4">
                         <div className="flex flex-col gap-2">
-                            <span className="text-xs text-muted-foreground uppercase">Core</span>
+                            <span className="text-xs text-muted-foreground uppercase">Frontend & Mobile</span>
                             <div className="flex flex-wrap gap-2">
-                                {["Next.js", "React", "TypeScript", "Node.js"].map(s => (
-                                    <span key={s} className="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm hover:bg-white/10 transition-colors">{s}</span>
+                                {["Next.js", "React", "Vue.js", "RN", "TypeScript"].map(s => (
+                                    <span key={s} className="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm hover:bg-white/10 hover:border-[rgb(var(--primary))/30] hover:text-[rgb(var(--secondary))] transition-all duration-300 cursor-default">{s}</span>
                                 ))}
                             </div>
                         </div>
                         <div className="flex flex-col gap-2">
-                            <span className="text-xs text-muted-foreground uppercase">Design & 3D</span>
+                            <span className="text-xs text-muted-foreground uppercase">Backend & Database</span>
                             <div className="flex flex-wrap gap-2">
-                                {["Tailwind CSS", "GSAP", "Three.js", "Figma"].map(s => (
-                                    <span key={s} className="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm hover:bg-white/10 transition-colors">{s}</span>
+                                {["Node.js", "Laravel", "PHP", "Python", "MySQL", "Postgres"].map(s => (
+                                    <span key={s} className="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm hover:bg-white/10 hover:border-[rgb(var(--primary))/30] hover:text-[rgb(var(--secondary))] transition-all duration-300 cursor-default">{s}</span>
                                 ))}
                             </div>
                         </div>
                         <div className="flex flex-col gap-2">
-                            <span className="text-xs text-muted-foreground uppercase">Backend</span>
+                            <span className="text-xs text-muted-foreground uppercase">Styling & Creative</span>
                             <div className="flex flex-wrap gap-2">
-                                {["PostgreSQL", "Python", "Docker"].map(s => (
-                                    <span key={s} className="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm hover:bg-white/10 transition-colors">{s}</span>
+                                {["Tailwind", "Bootstrap", "GSAP", "Three.js", "Figma"].map(s => (
+                                    <span key={s} className="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm hover:bg-white/10 hover:border-[rgb(var(--primary))/30] hover:text-[rgb(var(--secondary))] transition-all duration-300 cursor-default">{s}</span>
                                 ))}
                             </div>
                         </div>
