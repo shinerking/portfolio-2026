@@ -2,57 +2,187 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import {
+    SiPython,
+    SiNextdotjs,
+    SiTypescript,
+    SiJavascript,
+    SiTailwindcss,
+    SiNodedotjs,
+    SiReact,
+    SiFramer,
+    SiGreensock,
+    SiPhp,
+    SiMysql,
+    SiPostgresql,
+    SiVercel,
+    SiGithub
+} from "react-icons/si";
 
 const skills = [
+    "Full Stack Development",
+    "AI Engineering",
+    "Machine Learning",
+    "Real-time Systems",
+    "Decision Support System (SAW)",
+    "RESTful API",
+    "UI/UX Design",
+    "Git"
+];
+
+const techStack = [
+    // Recommended Recommended Order
     {
-        category: "Frontend & Mobile",
-        items: ["Next.js", "React", "Vue.js", "TypeScript", "React Native"]
+        name: "Python",
+        category: "AI/ML",
+        icon: SiPython,
+        color: "#3776AB"
     },
     {
-        category: "Styling & Creative",
-        items: ["Tailwind CSS", "Bootstrap", "GSAP", "Framer Motion", "Three.js"]
+        name: "Next.js",
+        category: "Frontend",
+        icon: SiNextdotjs,
+        color: "#000000" // Next.js is black/white
     },
     {
-        category: "Backend & API",
-        items: ["Node.js", "Express.js", "Laravel", "PHP (Native/CI)", "Python"]
+        name: "TypeScript",
+        category: "Language",
+        icon: SiTypescript,
+        color: "#3178C6"
     },
     {
-        category: "Database & DevOps",
-        items: ["PostgreSQL", "MySQL", "Supabase", "Docker", "Git"]
+        name: "JavaScript",
+        category: "Language",
+        icon: SiJavascript,
+        color: "#F7DF1E"
     },
+    {
+        name: "Tailwind CSS",
+        category: "Styling",
+        icon: SiTailwindcss,
+        color: "#06B6D4"
+    },
+    {
+        name: "Node.js",
+        category: "Backend",
+        icon: SiNodedotjs,
+        color: "#339933"
+    },
+    // Additional from categories list
+    {
+        name: "React.js",
+        category: "Frontend",
+        icon: SiReact,
+        color: "#61DAFB"
+    },
+    {
+        name: "Framer Motion",
+        category: "Animation",
+        icon: SiFramer,
+        color: "#0055FF"
+    },
+    {
+        name: "GSAP",
+        category: "Animation",
+        icon: SiGreensock,
+        color: "#88CE02"
+    },
+    {
+        name: "PHP",
+        category: "Backend",
+        icon: SiPhp,
+        color: "#777BB4"
+    },
+    {
+        name: "MySQL",
+        category: "Database",
+        icon: SiMysql,
+        color: "#4479A1"
+    },
+    {
+        name: "PostgreSQL",
+        category: "Database",
+        icon: SiPostgresql,
+        color: "#4169E1"
+    },
+    {
+        name: "Vercel",
+        category: "Deployment",
+        icon: SiVercel,
+        color: "#000000"
+    },
+    {
+        name: "GitHub",
+        category: "Version Control",
+        icon: SiGithub,
+        color: "#181717"
+    }
 ];
 
 export default function Skills() {
     return (
-        <section className="w-full max-w-[1600px] px-4 py-20">
-            <div className="flex items-center gap-4 mb-16">
-                <span className="text-sm font-mono uppercase tracking-widest text-muted-foreground">02 . Technical_Arsenal</span>
-                <span className="h-px flex-1 bg-white/10"></span>
+        <section id="skills" className="w-full max-w-[1600px] px-4 py-20 mx-auto">
+            {/* Skills Section (Pills) */}
+            <div className="mb-24 text-center">
+                <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-3xl font-space font-bold mb-12 text-[rgb(var(--primary))]"
+                >
+                    Skills
+                </motion.h2>
+
+                <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+                    {skills.map((skill, idx) => (
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: idx * 0.05 }}
+                            viewport={{ once: true }}
+                            whileHover={{ scale: 1.05 }}
+                            className="px-6 py-3 rounded-full border border-[rgb(var(--primary))/20] bg-white/5 backdrop-blur-sm text-neutral-300 font-mono text-sm hover:border-[rgb(var(--primary))] hover:text-white transition-all duration-300 cursor-default"
+                        >
+                            {skill}
+                        </motion.div>
+                    ))}
+                </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {skills.map((group, idx) => (
-                    <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.1, duration: 0.5 }}
-                        viewport={{ once: true }}
-                        className="p-6 rounded-lg border border-white/5 bg-white/5 hover:bg-white/10 hover:border-[rgb(var(--primary))/30] transition-all duration-300 backdrop-blur-sm group"
-                    >
-                        <h3 className="text-lg font-space font-bold mb-6 text-[rgb(var(--primary))] group-hover:text-[rgb(var(--secondary))] transition-colors">
-                            {group.category}
-                        </h3>
-                        <ul className="space-y-3 font-mono text-sm text-neutral-400">
-                            {group.items.map((skill, i) => (
-                                <li key={i} className="flex items-center gap-2">
-                                    <span className="w-1 h-1 bg-white/20 rounded-full" />
-                                    {skill}
-                                </li>
-                            ))}
-                        </ul>
-                    </motion.div>
-                ))}
+            {/* Tech Stack Section (Cards) */}
+            <div>
+                <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-3xl font-space font-bold text-center mb-16 text-[rgb(var(--primary))]"
+                >
+                    Tech Stack
+                </motion.h2>
+
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                    {techStack.map((tech, idx) => (
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: idx * 0.05 }}
+                            viewport={{ once: true }}
+                            className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[rgb(var(--primary))/30] hover:bg-white/10 transition-all duration-300 flex flex-col items-center justify-center text-center gap-4 aspect-[4/3] backdrop-blur-sm relative overflow-hidden"
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-br from-[rgb(var(--primary))/5] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                            <div className="p-3 rounded-xl bg-black/30 group-hover:scale-110 transition-transform duration-300 relative z-10">
+                                <tech.icon className="w-8 h-8" style={{ color: tech.color || "white" }} />
+                            </div>
+                            <div className="relative z-10">
+                                <h3 className="text-base font-bold text-white mb-1 group-hover:text-[rgb(var(--primary))] transition-colors">{tech.name}</h3>
+                                <p className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">{tech.category}</p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
         </section>
     );

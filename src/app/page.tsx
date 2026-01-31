@@ -1,5 +1,6 @@
 import Hero from "@/components/home/Hero";
 import About from "@/components/home/About";
+import Skills from "@/components/home/Skills";
 import Contact from "@/components/home/Contact";
 import ProjectCard from "@/components/projects/ProjectCard";
 
@@ -10,8 +11,10 @@ export default function Home() {
 
             <About />
 
+            <Skills />
+
             {/* Projects Section */}
-            <section className="w-full max-w-[1600px] px-4 py-20">
+            <section id="projects" className="w-full max-w-[1600px] px-4 py-20">
                 <div className="flex flex-col gap-10">
                     <div className="flex items-center gap-4">
                         <span className="text-sm font-mono uppercase tracking-widest text-muted-foreground">03 . Selected_Works</span>
@@ -30,22 +33,24 @@ export default function Home() {
                             githubLink="https://github.com/shinerking/jadialfa"
                             liveLink="https://jadialfa-l8wr.vercel.app?_vercel_share=f9yiufYBy4whd8WUVBWlLK4gjjp6JkvA"
                         />
-                        {/* Project 2: Full Stack Request (Laravel/Vue) */}
+                        {/* Project 2: Smart Retail AI Dashboard */}
                         <ProjectCard
                             index={1}
-                            title="LuxeMarket E-Commerce"
-                            description="Scalable multi-vendor marketplace platform. Built with a headless architecture using Laravel API and Vue.js frontend for maximum performance."
-                            tags={["Laravel", "Vue.js", "MySQL", "Redis"]}
-                            liveLink="https://example.com"
+                            title="Smart Retail Ai Dashboard"
+                            description="An intelligent monitoring system for retail chains. Integrated with Python K-Means Clustering to automatically segment store performance and visualized using interactive geospatial maps."
+                            tags={["Next.js", "TypeScript", "Python", "Leaflet Maps", "Tailwind"]}
+                            imageSrc="/images/dashboard-ai.png"
+                            githubLink="https://github.com/shinerking/dashboard-retail-ai"
+                            liveLink="https://shinerking.github.io/dashboard-retail-ai/"
                         />
-                        {/* Project 3: Mobile (React Native) */}
+                        {/* Project 3: Sentinel AI Ops */}
                         <ProjectCard
                             index={2}
-                            title="NexaFlow Mobile"
-                            description="Cross-platform mobile application for team collaboration. Features real-time sync, offline mode, and biometric authentication."
-                            tags={["React Native", "TypeScript", "Supabase", "Expo"]}
-                            githubLink="https://github.com"
-                            liveLink="https://example.com"
+                            title="Sentinel AI Ops - Real-Time Sentinel"
+                            description="An advanced security monitoring platform built with a Microservices architecture, integrating Google Gemini 2.5 Pro for autonomous log analysis. This system features a real-time data pipeline that streams server logs directly to a dynamic dashboard, providing instant risk scoring and technical threat mitigation strategies for critical security events. Fully containerized for seamless deployment and scalability."
+                            tags={["Next.js", "Node.js", "Socket.io", "Gemini AI", "Docker", "Redis", "Supabase"]}
+                            imageSrc="/images/sentinel-ops.png"
+                            githubLink="https://github.com/shinerking/sentinel-ai-ops"
                         />
                     </div>
                 </div>

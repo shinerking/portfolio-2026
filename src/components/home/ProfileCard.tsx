@@ -50,7 +50,7 @@ export default function ProfileCard() {
                     {/* Text Details */}
                     <div className="text-center space-y-2 mb-auto">
                         <h3 className="text-2xl font-bold font-space text-white tracking-tight">
-                            Abimanyu R.Putra
+                            Abimanyu R. Putra
                         </h3>
                         <p className="text-xs font-mono text-[rgb(var(--secondary))] uppercase tracking-widest">
                             Full Stack Engineer

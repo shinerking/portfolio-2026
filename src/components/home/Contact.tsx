@@ -5,7 +5,7 @@ import { ArrowUpRight, Mail, Instagram, Linkedin, Github } from "lucide-react";
 
 export default function Contact() {
     return (
-        <section className="w-full max-w-[1600px] px-4 py-32 flex flex-col items-center text-center relative overflow-hidden">
+        <section id="contact" className="w-full max-w-[1600px] px-4 py-32 flex flex-col items-center text-center relative overflow-hidden">
             {/* Background Decoration */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1)_0%,transparent_70%)] blur-3xl" />
 

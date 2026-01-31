@@ -41,9 +41,10 @@ export default function ProjectCard({
             {/* Image Area */}
             <div className="relative h-48 w-full overflow-hidden border-b border-white/5 bg-black">
                 {imageSrc ? (
-                    <div
-                        className="absolute inset-0 bg-cover bg-top transition-transform duration-700 group-hover:scale-110"
-                        style={{ backgroundImage: `url(${imageSrc})` }}
+                    <img
+                        src={imageSrc}
+                        alt={title}
+                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                     />
                 ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center text-neutral-700 gap-2 group-hover:bg-white/5 transition-colors">

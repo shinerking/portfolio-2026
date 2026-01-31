@@ -5,12 +5,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 import ProfileCard from "./ProfileCard";
 
-const skills = [
-    "Next.js", "React", "TypeScript", "Node.js",
-    "Tailwind CSS", "GSAP", "Three.js", "Python",
-    "PostgreSQL", "Docker", "Figma"
-];
-
 const education = [
     {
         school: "University of Indraprasta PGRI",
@@ -79,45 +73,12 @@ export default function About() {
                             As a Junior Full-Stack Developer, I specialize in building robust, scalable applications. My diverse technical background allows me to tackle complex challenges across the entire stack.
                         </p>
                         <ul className="list-disc pl-5 space-y-2 text-base">
-                            <li><strong className="text-white">Frontend & Mobile:</strong> Creating immersive experiences with Next.js, React, Vue.js, and React Native.</li>
+                            <li><strong className="text-white">Frontend:</strong> Creating immersive experiences with Next.js, React, Vue.js, and React Native.</li>
                             <li><strong className="text-white">Backend & Architecture:</strong> Developing secure, high-performance APIs using Node.js, Laravel (PHP), and Python.</li>
                         </ul>
                         <p>
                             I am constantly learning and currently expanding my skills in mobile development and AI integration. I am eager to connect with fellow developers and open to opportunities in web development or software engineering.
                         </p>
-                    </div>
-                </div>
-
-                {/* Content */}
-                <div className="space-y-6">
-                    <h4 className="text-sm font-mono uppercase tracking-widest text-[rgb(var(--secondary))]">Tech Stack & Tools</h4>
-
-                    {/* Grouped Skills */}
-                    <div className="space-y-4">
-                        <div className="flex flex-col gap-2">
-                            <span className="text-xs text-muted-foreground uppercase">Frontend & Mobile</span>
-                            <div className="flex flex-wrap gap-2">
-                                {["Next.js", "React", "Vue.js", "RN", "TypeScript"].map(s => (
-                                    <span key={s} className="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm hover:bg-white/10 hover:border-[rgb(var(--primary))/30] hover:text-[rgb(var(--secondary))] transition-all duration-300 cursor-default">{s}</span>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <span className="text-xs text-muted-foreground uppercase">Backend & Database</span>
-                            <div className="flex flex-wrap gap-2">
-                                {["Node.js", "Laravel", "PHP", "Python", "MySQL", "Postgres"].map(s => (
-                                    <span key={s} className="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm hover:bg-white/10 hover:border-[rgb(var(--primary))/30] hover:text-[rgb(var(--secondary))] transition-all duration-300 cursor-default">{s}</span>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <span className="text-xs text-muted-foreground uppercase">Styling & Creative</span>
-                            <div className="flex flex-wrap gap-2">
-                                {["Tailwind", "Bootstrap", "GSAP", "Three.js", "Figma"].map(s => (
-                                    <span key={s} className="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm hover:bg-white/10 hover:border-[rgb(var(--primary))/30] hover:text-[rgb(var(--secondary))] transition-all duration-300 cursor-default">{s}</span>
-                                ))}
-                            </div>
-                        </div>
                     </div>
                 </div>
 
